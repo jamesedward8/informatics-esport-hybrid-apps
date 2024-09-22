@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Our Schedule</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">our_schedule</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Schedule List -->
+  <ion-list lines='full '>
+    <ion-item *ngFor="let event of events">
+      <!-- Schedule Column -->
+      <ion-col size="3">
+        <ion-label>
+          <h3>{{ event.date }}</h3>
+          <p>{{ event.time }}</p>
+        </ion-label>
+      </ion-col>
+
+      <!-- Event Column -->
+      <ion-col size="6">
+        <ion-label>
+          <h2>{{ event.title }}</h2>
+          <p>{{ event.description }}</p>
+        </ion-label>
+      </ion-col>
+
+      <!-- Game-Team Column -->
+      <ion-col size="3">
+        <ion-label>
+          <h4>{{ event.game }}</h4>
+          <p>{{ event.team }}</p>
+        </ion-label>
+      </ion-col>
+    </ion-item>
+  </ion-list>
+
+  
+</ion-content>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom" >
+    <ion-tab-button tab="what-we-play" routerLink="/what-we-play">
+      <ion-icon name="game-controller-outline"></ion-icon>
+      <ion-label>What We Play</ion-label>
+    </ion-tab-button >
+    <ion-tab-button tab="who-we-are" routerLink="/who-we-are">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-label>Who We Are</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="our-schedule" routerLink="/our-schedule">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-label>Our Schedule</ion-label>
+      </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
