@@ -21,13 +21,13 @@ export class WhatWePlayPage implements OnInit {
     },
     {
       id: 3,
-      bannerUrl: 'https://example.com/banner3.jpg',
+      bannerUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/capsule_616x353.jpg?t=1724428927',
       name: 'Game 3',
       description: 'This is a description of Game 3. A thrilling tournament where our team excelled.',
     },
     {
       id: 4,
-      bannerUrl: 'https://example.com/banner4.jpg',
+      bannerUrl: 'https://praditadirgantara.sch.id/wp-content/uploads/2023/05/turnamen-mobile-legends-sma-pradita-dirgantara.jpeg.webp',
       name: 'Game 4',
       description: 'This is a description of Game 4. A thrilling tournament where our team excelled.',
     }

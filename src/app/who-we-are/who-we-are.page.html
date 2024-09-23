@@ -35,22 +35,23 @@
       Like
     </ion-button>
     <ion-label>{{ likeCount }} Likes</ion-label>
-  </ion-item>
+  </ion-item>   
+  
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="what-we-play" routerLink="/what-we-play">
+        <ion-icon name="game-controller-outline"></ion-icon>
+        <ion-label>What We Play</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="who-we-are" routerLink="/who-we-are">
+        <ion-icon name="people-outline"></ion-icon>
+        <ion-label>Who We Are</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="our-schedule" routerLink="/our-schedule">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <ion-label>Our Schedule</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>
 
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="what-we-play" routerLink="/what-we-play">
-      <ion-icon name="game-controller-outline"></ion-icon>
-      <ion-label>What We Play</ion-label>
-    </ion-tab-button>
-    <ion-tab-button tab="who-we-are" routerLink="/who-we-are">
-      <ion-icon name="people-outline"></ion-icon>
-      <ion-label>Who We Are</ion-label>
-    </ion-tab-button>
-    <ion-tab-button tab="our-schedule" routerLink="/our-schedule">
-      <ion-icon name="calendar-outline"></ion-icon>
-      <ion-label>Our Schedule</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
