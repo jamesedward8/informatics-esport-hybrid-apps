@@ -19,7 +19,7 @@
 
 
   <ion-card *ngFor="let game of games" class="card-content>">
-    <ion-img [ngStyle]="{'width': '100%', 'height': '500px', 'object-fit': 'cover'}" [src]="game.bannerUrl"></ion-img>
+    <ion-img class="image" [src]="game.bannerUrl"></ion-img>
 
     <ion-card-header>
       <ion-card-title>{{ game.name }}</ion-card-title>
