@@ -16,10 +16,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- Schedule List -->
   <ion-list lines='full'>
     <ion-item *ngFor="let event of events">
-      <!-- Schedule Column -->
       <ion-col size="3">
         <ion-label>
           <h3>{{ event.date }}</h3>
@@ -27,7 +25,6 @@
         </ion-label>
       </ion-col>
 
-      <!-- Event Column -->
       <ion-col size="6">
         <ion-label>
           <h2>{{ event.title }}</h2>
@@ -35,7 +32,6 @@
         </ion-label>
       </ion-col>
 
-      <!-- Game-Team Column -->
       <ion-col size="3">
         <ion-label>
           <h4>{{ event.game }}</h4>
@@ -44,6 +40,4 @@
       </ion-col>
     </ion-item>
   </ion-list>
-
-  
 </ion-content>
