@@ -29,19 +29,17 @@
       <p>{{ game.description }}</p>
     </ion-card-content>
 
-    <ion-row class="ion-justify-content-center ion-padding>">
+    <ion-row class="ion-justify-content-center ion-padding">
       <ion-col size="6">
-        <ion-button expand="block" color="primary" [routerLink]="['/achievements', game.id]">
+        <ion-button expand="block" color="primary" [routerLink]="'/achievement'">
           Achievements
         </ion-button>
       </ion-col>
       <ion-col size="6">
-        <ion-button expand="block" color="secondary" [routerLink]="['/teams', game.id]">
+        <ion-button expand="block" color="secondary" [routerLink]="'/teams'">
           Teams
         </ion-button>
       </ion-col>
     </ion-row>
   </ion-card>
-
-
 </ion-content>

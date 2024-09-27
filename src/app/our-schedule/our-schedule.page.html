@@ -16,8 +16,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list lines='full'>
-    <ion-item *ngFor="let event of events">
+  <ion-list lines='full' routerLink="/schedule-detail" >
+    <ion-item *ngFor="let event of events" class="list-content">
       <ion-col size="3">
         <ion-label>
           <h3>{{ event.date }}</h3>

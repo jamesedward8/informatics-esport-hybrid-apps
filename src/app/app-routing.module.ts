@@ -23,6 +23,22 @@ const routes: Routes = [
     path: 'our-schedule',
     loadChildren: () => import('./our-schedule/our-schedule.module').then( m => m.OurSchedulePageModule)
   },
+  {
+    path: 'achievement',
+    loadChildren: () => import('./what-we-play/achievement/achievement.module').then( m => m.AchievementPageModule)
+  },
+  {
+    path: 'teams',
+    loadChildren: () => import('./what-we-play/teams/teams.module').then( m => m.TeamsPageModule)
+  },
+  {
+    path: 'team-members',
+    loadChildren: () => import('./what-we-play/teams/team-members/team-members.module').then( m => m.TeamMembersPageModule)
+  },
+  {
+    path: 'schedule-detail',
+    loadChildren: () => import('./our-schedule/schedule-detail/schedule-detail.module').then( m => m.ScheduleDetailPageModule)
+  }
 ];
 
 @NgModule({
