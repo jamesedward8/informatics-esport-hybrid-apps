@@ -2,21 +2,26 @@
   <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-button routerLink="/home">
-        <ion-icon name="home-outline"></ion-icon>
+        <ion-icon name="home-outline" class="icon-home"></ion-icon>
       </ion-button>
     </ion-buttons>
+
     <ion-title>What We Play</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="person-circle-outline" class="icon-person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">What We Play</ion-title>
     </ion-toolbar>
   </ion-header>
-
 
   <ion-card *ngFor="let game of games" class="card-content>">
     <ion-img class="image" [src]="game.bannerUrl"></ion-img>
@@ -35,8 +40,9 @@
           Achievements
         </ion-button>
       </ion-col>
+
       <ion-col size="6">
-        <ion-button expand="block" color="secondary" [routerLink]="'/teams'">
+        <ion-button expand="block" color="warning" [routerLink]="'/teams'">
           Teams
         </ion-button>
       </ion-col>
