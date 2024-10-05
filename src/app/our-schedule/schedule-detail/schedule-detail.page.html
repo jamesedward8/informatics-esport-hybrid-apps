@@ -18,7 +18,31 @@
 
   <ion-content>
     <ion-card>
+      <ion-item>
+        <ion-img [src]="event.banner"></ion-img>
+      </ion-item>
 
+      <ion-card-header>
+        <ion-card-title>{{event.title}} - {{event.game}}</ion-card-title>
+        <ion-card-subtitle>{{event.place}} ({{event.time}})</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{event.description}} 
+      </ion-card-content>
+
+      <ion-item>
+        <ion-button size="small" class="like-button" id="present-alert" fill="outline">
+          <ion-icon name="notifications-outline"></ion-icon>
+          Notify Me
+        </ion-button>
+        <ion-alert
+          trigger="present-alert"
+          header="Notification"
+          message="Notification Created!"
+          [buttons]="alertButtons"
+        ></ion-alert>
+      </ion-item>
     </ion-card>
   </ion-content>
 </ion-content>

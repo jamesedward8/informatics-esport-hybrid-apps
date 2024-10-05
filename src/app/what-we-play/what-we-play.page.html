@@ -14,7 +14,7 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header>   
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -36,7 +36,7 @@
 
     <ion-row class="ion-justify-content-center ion-padding">
       <ion-col size="6">
-        <ion-button expand="block" color="primary" [routerLink]="'/achievement'">
+        <ion-button expand="block" color="primary" [routerLink]="['/achievement', game.name]" >
           Achievements
         </ion-button>
       </ion-col>
