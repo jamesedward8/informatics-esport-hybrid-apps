@@ -21,14 +21,20 @@ export class TeamMembersPage implements OnInit {
           name: 'Team A', 
           members: [
             { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerA1', role: 'Attacker' },
-            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerA2', role: 'Defender' }
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerA2', role: 'Defender' },
+            { avatar: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png', nickname: 'PlayerA3', role: 'Sniper' },
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerA4', role: 'Support' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerA5', role: 'Strategist' }
           ] 
         },
         { 
           name: 'Team B', 
           members: [
-            { avatar: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png', nickname: 'PlayerB1', role: 'Sniper' },
-            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerB2', role: 'Support' }
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerB1', role: 'Attacker' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerB2', role: 'Defender' },
+            { avatar: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png', nickname: 'PlayerB3', role: 'Sniper' },
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerB4', role: 'Support' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerB5', role: 'Strategist' }
           ] 
         }
       ],
@@ -38,14 +44,77 @@ export class TeamMembersPage implements OnInit {
       name: 'PUBG',
       teams: [
         { 
-          name: 'Team F', 
+          name: 'Team A', 
           members: [
-            { avatar: 'https://w7.pngwing.com/pngs/152/155/png-transparent-male-man-person-business-avatar-icon.png', nickname: 'PlayerF1', role: 'Leader' },
-            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerF2', role: 'Scout' }
+            { avatar: 'https://w7.pngwing.com/pngs/152/155/png-transparent-male-man-person-business-avatar-icon.png', nickname: 'PlayerA1', role: 'Leader' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerA2', role: 'Scout' },
+            { avatar: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png', nickname: 'PlayerA3', role: 'Sniper' },
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerA4', role: 'Support' }
+          ] 
+        },
+        { 
+          name: 'Team B', 
+          members: [
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerB1', role: 'Leader' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerB2', role: 'Scout' },
+            { avatar: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png', nickname: 'PlayerB3', role: 'Sniper' },
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerB4', role: 'Support' }
           ] 
         }
       ],
       bannerUrl: 'https://gambar.sgp1.digitaloceanspaces.com/wp-content/uploads/2020/07/1-68.jpg'
+    },
+    {
+      name: 'DOTA 2',
+      teams: [
+        { 
+          name: 'Team A', 
+          members: [
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerA1', role: 'Carry' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerA2', role: 'Support' },
+            { avatar: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png', nickname: 'PlayerA3', role: 'Mid' },
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerA4', role: 'Offlane' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerA5', role: 'Hard Support' }
+          ] 
+        },
+        { 
+          name: 'Team B', 
+          members: [
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerB1', role: 'Carry' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerB2', role: 'Support' },
+            { avatar: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png', nickname: 'PlayerB3', role: 'Mid' },
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerB4', role: 'Offlane' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerB5', role: 'Hard Support' }
+          ] 
+        }
+      ],
+      bannerUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/capsule_616x353.jpg?t=1724428927'
+    },
+    {
+      name: 'Mobile Legends: Bang Bang',
+      teams: [
+        { 
+          name: 'Team A', 
+          members: [
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerA1', role: 'Tank' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerA2', role: 'Marksman' },
+            { avatar: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png', nickname: 'PlayerA3', role: 'Mage' },
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerA4', role: 'Support' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerA5', role: 'Fighter' }
+          ] 
+        },
+        { 
+          name: 'Team B', 
+          members: [
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerB1', role: 'Tank' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerB2', role: 'Marksman' },
+            { avatar: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png', nickname: 'PlayerB3', role: 'Mage' },
+            { avatar: 'https://cdn-icons-png.flaticon.com/512/6858/6858504.png', nickname: 'PlayerB4', role: 'Support' },
+            { avatar: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/male3-512.png', nickname: 'PlayerB5', role: 'Fighter' }
+          ] 
+        }
+      ],
+      bannerUrl: 'https://praditadirgantara.sch.id/wp-content/uploads/2023/05/turnamen-mobile-legends-sma-pradita-dirgantara.jpeg.webp'
     }
   ];
 

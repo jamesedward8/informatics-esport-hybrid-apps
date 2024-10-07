@@ -14,22 +14,22 @@ export class TeamsPage implements OnInit {
   teams: { name: string }[] = [];
   games = [
     {
-      teams: ["Team A", "Team B", "Team C", "Team D"],
+      teams: ["Team A", "Team B"],
       bannerUrl: 'https://www.riotgames.com/darkroom/1440/8d5c497da1c2eeec8cffa99b01abc64b:5329ca773963a5b739e98e715957ab39/ps-f2p-val-console-launch-16x9.jpg',
       name: 'Valorant',
     },
     {
-      teams: ["Team A", "Team B", "Team C", "Team D"],
+      teams: ["Team A", "Team B"],
       bannerUrl: 'https://gambar.sgp1.digitaloceanspaces.com/wp-content/uploads/2020/07/1-68.jpg',
       name: 'PUBG',
     },
     {
-      teams: ["Team A", "Team B", "Team C", "Team D"],nerUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/capsule_616x353.jpg?t=1724428927',
+      teams: ["Team A", "Team B"],
       bannerUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/capsule_616x353.jpg?t=1724428927',
       name: 'DOTA 2',
     },
     {
-      teams: ["Team A", "Team B", "Team C", "Team D"],
+      teams: ["Team A", "Team B"],
       bannerUrl: 'https://praditadirgantara.sch.id/wp-content/uploads/2023/05/turnamen-mobile-legends-sma-pradita-dirgantara.jpeg.webp',
       name: 'Mobile Legends: Bang Bang',
     }
