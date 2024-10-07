@@ -40,12 +40,20 @@ const routes: Routes = [
     loadChildren: () => import('./our-schedule/schedule-detail/schedule-detail.module').then( m => m.ScheduleDetailPageModule)
   },
   {
-    path: 'schedule-detail/:index',
+    path: 'schedule-detail/:title',
     loadChildren: () => import('./our-schedule/schedule-detail/schedule-detail.module').then( m => m.ScheduleDetailPageModule)
   },
   {
-    path: 'schedule-detail/:name',
-    loadChildren: () => import('./our-schedule/schedule-detail/schedule-detail.module').then( m => m.ScheduleDetailPageModule)
+    path: 'achievement/:name',
+    loadChildren: () => import('./what-we-play/achievement/achievement.module').then( m => m.AchievementPageModule)
+  },
+  { 
+    path: 'teams/:name',
+    loadChildren: () => import('./what-we-play/teams/teams.module').then( m => m.TeamsPageModule)
+  },
+  {
+    path: 'team-members/:game/:team',
+    loadChildren: () => import('./what-we-play/teams/team-members/team-members.module').then( m => m.TeamMembersPageModule)
   }
 ];
 

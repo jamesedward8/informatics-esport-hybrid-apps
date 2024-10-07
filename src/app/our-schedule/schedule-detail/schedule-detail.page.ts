@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ScheduleDetailPage implements OnInit {
 
-  index:number=0
+  title:string = "";
   event:any
   
   public alertButtons = ['OK']
@@ -16,9 +16,9 @@ export class ScheduleDetailPage implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.index = params['index'];
-      this.event = this.events[this.index];
-    })
+      this.title = params['title'];
+      this.event = this.events.find(event => event.title === this.title);
+    });
   }
 
   events = [
@@ -26,7 +26,7 @@ export class ScheduleDetailPage implements OnInit {
       date: '2024-10-01',
       time: '15:00',
       title: 'VCT Pacific',
-      description: 'Exciting match scheduled for the afternoon.',
+      description: 'Join us for an exciting match in the VCT Pacific tournament, where the top teams from around the region will battle it out in a high-stakes, action-packed showdown. Expect intense gameplay, strategic plays, and non-stop action as Team A faces their toughest challenge yet. Whether you are a casual viewer or a dedicated fan of Valorant, this is a must-watch event that promises to deliver thrilling moments and unforgettable highlights. Be sure to arrive early to secure a good seat and soak in the electric atmosphere at Gelora Bung Karno, Surabaya!',
       game: 'Valorant',
       team: 'Team A',
       place: 'Gelora Bung Karno, Surabaya',
@@ -36,7 +36,7 @@ export class ScheduleDetailPage implements OnInit {
       date: '2024-10-05',
       time: '18:00',
       title: 'MPL ID S14',
-      description: 'Join us for a live stream on our YouTube channel.',
+      description: 'Experience the intensity of Mobile Legends: Bang Bang like never before in the MPL ID S14 live stream. Team B will showcase their skills and strategies in a highly anticipated match, streaming live on our YouTube channel. Fans around the world are invited to tune in and watch this exciting clash of titans as the best players go head-to-head in this season’s top event. Don’t miss out on the chance to see your favorite teams and players in action, and be part of the exhilarating journey as the competition unfolds!',
       game: 'Mobile Legends: Bang Bang',
       team: 'Team B',
       place: 'Jatim Expo, Surabaya',
@@ -46,13 +46,14 @@ export class ScheduleDetailPage implements OnInit {
       date: '2024-10-10',
       time: '10:00',
       title: 'PMSL SEA Fall',
-      description: 'Workshop focusing on team strategy and gameplay.',
+      description: 'PMSL SEA Fall is bringing together some of the finest teams from the Southeast Asia region for a workshop and live match event. This interactive session is designed to give fans an inside look into how professional PUBG teams develop strategies and perfect their gameplay. Team C will be leading the session, providing insights into their training regimen, coordination, and tactical decision-making. Join us at Universitas Surabaya for a unique opportunity to learn from the pros and engage with the players in person!',
       game: 'PUBG',
       team: 'Team C',
       place: 'Universitas Surabaya',
       banner: 'https://gambar.sgp1.digitaloceanspaces.com/wp-content/uploads/2020/07/1-68.jpg'
     }
   ];
+  
 
 
 }

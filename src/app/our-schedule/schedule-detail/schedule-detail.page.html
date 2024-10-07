@@ -2,10 +2,17 @@
   <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-button routerLink="/home">
-        <ion-icon name="home-outline"></ion-icon>
+        <ion-icon name="home-outline" class="icon-home"></ion-icon>
       </ion-button>
     </ion-buttons>
+
     <ion-title>Schedule Detail</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="person-circle-outline" class="icon-person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -19,7 +26,7 @@
   <ion-content>
     <ion-card>
       <ion-item>
-        <ion-img [src]="event.banner"></ion-img>
+        <ion-img [src]="event.banner" class="banner-image"></ion-img>
       </ion-item>
 
       <ion-card-header>
@@ -27,12 +34,12 @@
         <ion-card-subtitle>{{event.place}} ({{event.time}})</ion-card-subtitle>
       </ion-card-header>
 
-      <ion-card-content>
+      <ion-card-content class="content-description">
         {{event.description}} 
       </ion-card-content>
 
       <ion-item>
-        <ion-button size="small" class="like-button" id="present-alert" fill="outline">
+        <ion-button size="default" class="like-button" id="present-alert" fill="outline" slot="end"> 
           <ion-icon name="notifications-outline"></ion-icon>
           Notify Me
         </ion-button>

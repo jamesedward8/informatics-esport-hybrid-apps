@@ -2,10 +2,17 @@
   <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-button routerLink="/home">
-        <ion-icon name="home-outline"></ion-icon>
+        <ion-icon name="home-outline" class="icon-home"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Teams</ion-title>
+
+    <ion-title>{{name}} Teams</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="person-circle-outline" class="icon-person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -15,4 +22,14 @@
       <ion-title size="large">teams</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-item>
+    <ion-img [src]="bannerUrl" class="banner-image"></ion-img>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let team of teams" [routerLink]="['/team-members', name, team]">
+      <ion-label class="team-content">{{ team }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

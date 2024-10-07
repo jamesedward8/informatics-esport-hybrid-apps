@@ -23,7 +23,9 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-img src="../../assets/image/whoweare.png" class="image"></ion-img>
+  <ion-item>
+    <ion-img src="../../assets/image/whoweare.png" class="image"></ion-img>
+  </ion-item>
 
   <ion-title size="large" class="title-content">Who We Are</ion-title>
 
@@ -49,11 +51,10 @@
     </p>
   </ion-text>
 
-  <ion-item>
-    <ion-button size="small" class="like-button" (click)="like()">
-      <ion-icon name="thumbs-up-outline"></ion-icon>
-      Like
+  <ion-item lines="none">
+    <ion-button size="default" (click)="like()" slot="end" color="tertiary">
+      <ion-icon name="thumbs-up"></ion-icon>
+      <ion-label class="like-count">{{ likeCount }} Likes</ion-label> 
     </ion-button>
-    <ion-label class="like-count"> {{ likeCount }} Likes</ion-label>
   </ion-item>
 </ion-content>
