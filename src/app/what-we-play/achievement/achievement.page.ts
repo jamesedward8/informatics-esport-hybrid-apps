@@ -9,29 +9,28 @@ import { EsportserviceService, Game, Achievement } from 'src/app/esportservice.s
 })
 export class AchievementPage implements OnInit {
 
-  gameName: string = "";
-  selectedYear: string = "All";
   achievements: Achievement[] = [];     
   games: Game[] = [];
-  filteredAchievements: any[] = [];
+  gameName: string = "";
+  selectedYear: string = "All";
+  selectedAchievements: any[] = [];
   years: string[] = ['All', '2021', '2022', '2023'];
-  bannerUrl: string = "";
+  banner: string = "";
   achievement: any[] = [];
-  selectedGame:any
+  selectedGame: any
 
   constructor(private route: ActivatedRoute, private esportservice:EsportserviceService) {}
 
   ngOnInit() {
     this.achievements = this.esportservice.achievements;
     this.games = this.esportservice.games;
-
     this.route.params.subscribe(params => {
       this.gameName = params['name'];
-      this.loadAchievements();
+      this.getSelectedGameAchievements();
     });
   }
 
-  loadAchievements() {
+  getSelectedGameAchievements() {
     this.selectedGame = this.games.find(game => game.name === this.gameName);
 
     if (this.selectedGame) {
@@ -39,18 +38,18 @@ export class AchievementPage implements OnInit {
       
       if (gameAchievements) {
         this.achievement = gameAchievements.achievements; 
-        this.filteredAchievements = this.achievement; 
+        this.selectedAchievements = this.achievement; 
       }
-      this.bannerUrl = this.selectedGame.bannerUrl; 
+      this.banner = this.selectedGame.banner; 
     }
   }
 
-  filterAchievements() {
+  getSelectedYearAchivements() {
     if (this.selectedYear === "All") {
-      this.filteredAchievements = this.achievement; 
+      this.selectedAchievements = this.achievement; 
     } 
     else {
-      this.filteredAchievements = this.achievement.filter(
+      this.selectedAchievements = this.achievement.filter(
         achievement => achievement.year.toString() === this.selectedYear
       );
     }

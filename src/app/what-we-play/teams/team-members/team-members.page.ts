@@ -14,7 +14,7 @@ export class TeamMembersPage implements OnInit {
   teamName: string = "";
   gameName: string = "";
   members: Member[] = [];
-  bannerUrl: string = "";
+  banner: string = "";
   game:any;
   team:any;
   selectedTeamDetail: any[] = [];
@@ -45,7 +45,7 @@ export class TeamMembersPage implements OnInit {
           this.selectedTeamDetail = selectedTeam.members; 
         }
       }
-      this.bannerUrl = this.game.bannerUrl;
+      this.banner = this.game.banner;
     }
   }
 }

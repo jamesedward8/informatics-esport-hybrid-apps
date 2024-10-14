@@ -8,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class WhoWeArePage implements OnInit {
 
   likeCount = 0;
+  
   constructor() { }
 
-  like() {
-    this.likeCount++;
+  ngOnInit() {
   }
   
-  ngOnInit() {
+  like() {
+    this.likeCount++;
   }
 
 }

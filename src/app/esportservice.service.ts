@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 export interface Game {
   name: string;
-  bannerUrl: string;
+  banner: string;
   description: string;
 }
 
@@ -55,22 +55,22 @@ export class EsportserviceService {
   games:Game[] = [
     {
       name: 'Valorant',
-      bannerUrl: 'https://www.riotgames.com/darkroom/1440/8d5c497da1c2eeec8cffa99b01abc64b:5329ca773963a5b739e98e715957ab39/ps-f2p-val-console-launch-16x9.jpg',
+      banner: 'https://www.riotgames.com/darkroom/1440/8d5c497da1c2eeec8cffa99b01abc64b:5329ca773963a5b739e98e715957ab39/ps-f2p-val-console-launch-16x9.jpg',
       description: 'Valorant adalah game first-person shooter (FPS) berbasis tim yang dikembangkan oleh Riot Games. Pemain dibagi menjadi dua tim beranggotakan lima orang, dengan satu tim menyerang dan yang lainnya bertahan. Setiap pemain memilih agen dengan kemampuan khusus yang dapat digunakan untuk mendukung strategi tim. Objektifnya adalah untuk menanam atau menjinakkan bom (Spike) tergantung peran tim. Valorant menonjol karena kombinasinya antara tembak-menembak yang cepat dan elemen taktis yang bergantung pada kemampuan setiap agen.',
     },
     {
       name: 'PUBG',
-      bannerUrl: 'https://gambar.sgp1.digitaloceanspaces.com/wp-content/uploads/2020/07/1-68.jpg',
+      banner: 'https://gambar.sgp1.digitaloceanspaces.com/wp-content/uploads/2020/07/1-68.jpg',
       description: 'PUBG adalah game battle royale yang dikembangkan oleh PUBG Corporation. Pemain akan terjun dari pesawat ke peta besar dan harus bertahan hidup di lingkungan yang semakin menyempit sambil mengumpulkan senjata, perlengkapan, dan kendaraan. Hingga 100 pemain bisa berpartisipasi dalam satu pertandingan, baik dalam mode solo, duo, atau tim. Pemain terakhir atau tim yang bertahan hidup akan menjadi pemenangnya. Game ini terkenal karena gameplay realistis dan peta yang luas.',
     },
     {
       name: 'DOTA 2',
-      bannerUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/capsule_616x353.jpg?t=1724428927',
+      banner: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/capsule_616x353.jpg?t=1724428927',
       description: 'Dota 2 adalah game Multiplayer Online Battle Arena (MOBA) yang dikembangkan oleh Valve. Dua tim yang terdiri dari lima pemain bersaing untuk menghancurkan struktur utama tim lawan yang disebut "Ancient" sambil melindungi struktur mereka sendiri. Setiap pemain memilih satu dari ratusan hero yang memiliki kemampuan unik. Game ini membutuhkan kerjasama tim yang kuat, pengetahuan strategi, dan penguasaan karakter. Dota 2 terkenal dengan tingkat kompetitifnya dan ekosistem esports yang besar.',
     },
     {
       name: 'Mobile Legends: Bang Bang',
-      bannerUrl: 'https://praditadirgantara.sch.id/wp-content/uploads/2023/05/turnamen-mobile-legends-sma-pradita-dirgantara.jpeg.webp',
+      banner: 'https://praditadirgantara.sch.id/wp-content/uploads/2023/05/turnamen-mobile-legends-sma-pradita-dirgantara.jpeg.webp',
       description: 'Mobile Legends adalah game MOBA yang dirancang khusus untuk perangkat seluler dan dikembangkan oleh Moonton. Dua tim beranggotakan lima pemain bersaing untuk menghancurkan basis lawan sambil mempertahankan basis mereka sendiri. Setiap pemain memilih hero dengan peran khusus seperti Tank, Mage, atau Marksman. Dengan durasi permainan yang lebih singkat dibandingkan MOBA PC, Mobile Legends menonjol karena kemudahan akses dan permainan yang cepat.',
     }
   ];

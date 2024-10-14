@@ -5,9 +5,7 @@
         <ion-icon name="home-outline" class="icon-home"></ion-icon>
       </ion-button>
     </ion-buttons>
-
     <ion-title>Our Schedule</ion-title>
-
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon name="person-circle-outline" class="icon-person"></ion-icon>
@@ -22,7 +20,6 @@
       <ion-title size="large">our_schedule</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <ion-list lines='full'>
     <ion-item *ngFor="let event of events" [routerLink]="['/schedule-detail', event.title]" >
       <ion-col size="3">
@@ -31,13 +28,11 @@
           <p>{{ event.time }}</p>
         </ion-label>
       </ion-col>
-
       <ion-col size="6">
         <ion-label>
           <h2>{{ event.title }}</h2>
         </ion-label>
       </ion-col>
-
       <ion-col size="3">
         <ion-label>
           <h4>{{ event.game }}</h4>

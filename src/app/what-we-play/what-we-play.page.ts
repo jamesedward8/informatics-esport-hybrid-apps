@@ -9,6 +9,7 @@ import { EsportserviceService, Game } from '../esportservice.service';
 export class WhatWePlayPage implements OnInit {
 
   game:Game[] = []; 
+  
   constructor(private esportservice:EsportserviceService) { }
 
   ngOnInit() {

@@ -5,9 +5,7 @@
         <ion-icon name="chevron-back-outline" class="icon-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-
     <ion-title>Schedule Detail</ion-title>
-
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon name="person-circle-outline" class="icon-person"></ion-icon>
@@ -22,22 +20,17 @@
       <ion-title size="large">Schedule Detail</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <ion-content>
     <ion-card>
       <ion-item>
         <ion-img [src]="event.banner" class="banner-image"></ion-img>
       </ion-item>
-
       <ion-card-header>
         <ion-card-title>{{event.title}} - {{event.game}}</ion-card-title>
         <ion-card-subtitle>{{event.place}} ({{event.time}})</ion-card-subtitle>
       </ion-card-header>
-
       <ion-card-content class="content-description">
         {{event.description}} 
       </ion-card-content>
-
       <ion-item>
         <ion-button size="default" class="like-button" id="present-alert" fill="outline" slot="end"> 
           <ion-icon name="notifications-outline"></ion-icon>
@@ -51,5 +44,4 @@
         ></ion-alert>
       </ion-item>
     </ion-card>
-  </ion-content>
 </ion-content>

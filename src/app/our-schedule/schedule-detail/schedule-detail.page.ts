@@ -12,8 +12,8 @@ export class ScheduleDetailPage implements OnInit {
   title:string = "";
   event:any
   events:Event[] = []
-  
   public alertButtons = ['OK']
+
   constructor(private route:ActivatedRoute, private esportservice: EsportserviceService) { }
 
   ngOnInit() {

@@ -13,7 +13,7 @@ export class TeamsPage implements OnInit {
   teams:Member[] = [];
   name: string = "";
   game:any
-  bannerUrl: string = "";  
+  banner: string = "";  
   selectedTeams: any[] = [];
 
   constructor(private route:ActivatedRoute, private esportservice:EsportserviceService) { }
@@ -21,23 +21,20 @@ export class TeamsPage implements OnInit {
   ngOnInit() {
     this.games = this.esportservice.games;
     this.teams = this.esportservice.members;
-
     this.route.params.subscribe(params => {
       this.name = params['name'];
-      this.loadGame();
+      this.getSelectedTeams();
     });
   }
 
-  loadGame() {
+  getSelectedTeams() {
     this.game = this.games.find(game => game.name === this.name);
-
     if (this.game) {
       const selectedGame = this.teams.find(team => team.name === this.name)
-
       if(selectedGame){
         this.selectedTeams = selectedGame.teams;
       }
-      this.bannerUrl = this.game.bannerUrl;
+      this.banner = this.game.banner;
     }
   }
 }
