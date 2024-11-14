@@ -3,12 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'what-we-play',
     pathMatch: 'full'
   },
   {
@@ -54,6 +50,18 @@ const routes: Routes = [
   {
     path: 'team-members/:game/:team',
     loadChildren: () => import('./what-we-play/teams/team-members/team-members.module').then( m => m.TeamMembersPageModule)
+  },
+  {
+    path: 'sign-in',
+    loadChildren: () => import('./sign-in/sign-in.module').then( m => m.SignInPageModule)
+  },
+  {
+    path: 'sign-up',
+    loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },
+  {
+    path: 'apply-team',
+    loadChildren: () => import('./apply-team/apply-team.module').then( m => m.ApplyTeamPageModule)
   }
 ];
 
