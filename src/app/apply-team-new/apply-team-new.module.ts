@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ApplyNewTeamPageRoutingModule } from './apply-new-team-routing.module';
+import { ApplyTeamNewPageRoutingModule } from './apply-team-new-routing.module';
 
-import { ApplyNewTeamPage } from './apply-new-team.page';
+import { ApplyTeamNewPage } from './apply-team-new.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ApplyNewTeamPageRoutingModule
+    ApplyTeamNewPageRoutingModule
   ],
-  declarations: [ApplyNewTeamPage]
+  declarations: [ApplyTeamNewPage]
 })
-export class ApplyNewTeamPageModule {}
+export class ApplyTeamNewPageModule {}

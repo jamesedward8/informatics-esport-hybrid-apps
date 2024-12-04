@@ -58,7 +58,11 @@ const routes: Routes = [
   {
     path: 'apply-team',
     loadChildren: () => import('./apply-team/apply-team.module').then( m => m.ApplyTeamPageModule)
-  }
+  },
+  {
+    path: 'apply-team-new',
+    loadChildren: () => import('./apply-team-new/apply-team-new.module').then( m => m.ApplyTeamNewPageModule)
+  },
 ];
 
 @NgModule({
