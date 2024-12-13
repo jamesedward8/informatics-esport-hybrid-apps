@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EsportserviceService } from './esportservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,14 @@ export class AppComponent {
   password=""
   fullname=""
 
-  constructor(private esportservice: EsportserviceService) {  
+  constructor(private router: Router, private esportservice: EsportserviceService) {  
     this.username = localStorage.getItem("app_username") ?? '';
     this.fullname = localStorage.getItem("app_fullname") ?? '';
+  }
+
+  isExcludedPage(): boolean {
+    const excludedRoutes = ['/apply-team', '/apply-team-new'];
+    return excludedRoutes.some((route) => this.router.url.includes(route));
   }
 
   login() {
