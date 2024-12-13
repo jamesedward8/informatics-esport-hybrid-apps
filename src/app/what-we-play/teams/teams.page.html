@@ -1,31 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="tertiary">
-    <ion-buttons slot="start">
-      <ion-button routerLink="/what-we-play">
-        <ion-icon name="chevron-back-outline" class="icon-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>{{ name }} Teams</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="person-circle-outline" class="icon-person"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ name }} Teams</ion-title>
+  <ion-header [translucent]="true">
+    <ion-toolbar color="tertiary">
+      <ion-buttons slot="start">
+        <ion-button routerLink="/what-we-play">
+          <ion-icon name="chevron-back-outline" class="icon-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{ name }} Teams</ion-title>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="person-circle-outline" class="icon-person"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  <ion-item>
-    <ion-img [src]="banner" class="banner-image"></ion-img>
-  </ion-item>
-  <ion-list>
-    <ion-item *ngFor="let team of selectedTeams" [routerLink]="['/team-members', name, team.name]">
-      <ion-label class="team-content">{{ team.name }}</ion-label>
+
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">{{ name }} Teams</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-item>
+      <ion-img [src]="banner" class="banner-image"></ion-img>
     </ion-item>
-  </ion-list>
-</ion-content>
+    <ion-list>
+      <ion-item *ngFor="let team of teams" [routerLink]="['/team-members', name, team.name]">
+        <ion-label class="team-content">{{ team.name }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>

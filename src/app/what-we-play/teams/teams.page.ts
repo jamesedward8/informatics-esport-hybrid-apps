@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
-import { EsportserviceService, Member, Game } from 'src/app/esportservice.service';
+import { EsportserviceService, GameID, Game, Team } from 'src/app/esportservice.service';
 
 @Component({
   selector: 'app-teams',
@@ -10,31 +10,31 @@ import { EsportserviceService, Member, Game } from 'src/app/esportservice.servic
 export class TeamsPage implements OnInit {
 
   games:Game[] = [];
-  teams:Member[] = [];
+  teams:Team[] = [];
   name: string = "";
-  game:any
+  game:any    
   banner: string = "";  
-  selectedTeams: any[] = [];
 
   constructor(private route:ActivatedRoute, private esportservice:EsportserviceService) { }
 
   ngOnInit() {
-    this.games = this.esportservice.games;
-    this.teams = this.esportservice.members;
     this.route.params.subscribe(params => {
       this.name = params['name'];
-      this.getSelectedTeams();
-    });
-  }
+      console.log("Team Name:", this.name)
 
-  getSelectedTeams() {
-    this.game = this.games.find(game => game.name === this.name);
-    if (this.game) {
-      const selectedGame = this.teams.find(team => team.name === this.name)
-      if(selectedGame){
-        this.selectedTeams = selectedGame.teams;
-      }
-      this.banner = this.game.banner;
-    }
+      this.esportservice.getTeamIdbyName(this.name).subscribe(
+        (data: GameID[])=>{
+          this.game = data;
+          console.log("ID Game:", this.game)
+
+          this.esportservice.teamList(this.game.idgame).subscribe(
+            (teamData: Team[])=>{
+              this.teams = teamData;
+              console.log("Teams:", this.teams);
+            }
+          )
+        });
+        }
+      )
   }
 }

@@ -22,8 +22,18 @@ export class AchievementPage implements OnInit {
   constructor(private route: ActivatedRoute, private esportservice:EsportserviceService) {}
 
   ngOnInit() {
-    this.achievements = this.esportservice.achievements;
-    this.games = this.esportservice.games;
+    // this.achievements = this.esportservice.achievements;
+    // this.games = this.esportservice.games;
+    this.esportservice.achievementList().subscribe(
+      (data)=>{
+        this.achievements = data;
+      }
+    )
+    this.esportservice.gameList().subscribe(
+      (data)=>{
+        this.games = data;
+      }
+    )
     this.route.params.subscribe(params => {
       this.gameName = params['name'];
       this.getSelectedGameAchievements();

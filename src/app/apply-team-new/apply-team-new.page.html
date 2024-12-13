@@ -1,6 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-title>Apply New Team</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="person-circle-outline" class="icon-person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -17,27 +25,33 @@
     <ion-select
       labelPlacement="stacked"
       placeHolder="Choose Game"
+      (ionChange)="selectedTeam()"
+      [(ngModel)]="selectedIdGame"
     >
-      <!-- <ion-select-option
-        *ngFor="let price of arr_price"
-        [value]="price"
-      >{{price}}</ion-select-option> -->
+      <ion-select-option
+        *ngFor="let game of game" 
+        [value]="game.idgame"
+        >{{game.name}}
+      </ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-select
       labelPlacement="stacked"
       placeHolder="Choose Team"
+      [disabled]="!team.length"
+      [(ngModel)]="p_idteam"
     >
-      <!-- <ion-select-option
-        *ngFor="let price of arr_price"
-        [value]="price"
-      >{{price}}</ion-select-option> -->
+      <ion-select-option
+        *ngFor="let team of team"
+        [value]="team.idteam"
+      >{{team.name}}</ion-select-option>
     </ion-select>
   </ion-item>
   <div style="height: 20px;"></div>
   <ion-item>
     <ion-textarea
+        [(ngModel)]="p_description"
         label="Description"
         labelPlacement="stacked"
         rows="7"
@@ -46,7 +60,17 @@
   </ion-item>
   <ion-item>
     <ion-buttons slot="end">
-      <ion-button>Apply Team</ion-button>
+      <ion-button 
+        id="btnsubmit" 
+        expand="block" 
+        (click)="applyTeam()">Submit</ion-button>
+        
     </ion-buttons>
+    <ion-alert
+          trigger="btnsubmit"
+          header="Apply Team"
+          message="Data successfully stored"
+          [buttons]="alertButtons"
+        ></ion-alert> 
   </ion-item>
 </ion-content>

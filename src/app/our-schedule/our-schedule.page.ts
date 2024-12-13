@@ -13,6 +13,10 @@ export class OurSchedulePage implements OnInit {
   constructor(private esportservice:EsportserviceService) { }
 
   ngOnInit() {
-    this.events = this.esportservice.events;
+    this.esportservice.scheduleList().subscribe(
+      (data)=>{
+        this.events = data;
+      }
+    )
   }
 }

@@ -17,10 +17,10 @@ export class AppComponent {
   }
 
   login() {
-    this.esportservice.login(this.username,this.password).subscribe(
+    this.esportservice.login(this.username, this.password).subscribe(
       (response: any) => {
         if(response.result==='success'){
-          alert("success")
+          alert("Login Success")
           this.fullname=response.fullname
           localStorage.setItem("app_username",this.username)
           localStorage.setItem("app_fullname",this.fullname)

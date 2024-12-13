@@ -1,6 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-title>Proposal List</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="person-circle-outline" class="icon-person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -12,6 +20,12 @@
   </ion-header>
   <ion-item>
     <ion-label>Proposal List</ion-label>
+  </ion-item>
+  <ion-item *ngFor="let prop of proposal">
+    <ion-label>
+      <h2>{{ prop.name }}</h2>
+      <p>Status: {{ prop.status }}</p>
+    </ion-label>
   </ion-item>
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
     <ion-fab-button routerLink='/apply-team-new'>
