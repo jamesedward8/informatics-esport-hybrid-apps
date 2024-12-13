@@ -38,7 +38,7 @@ export class ApplyTeamNewPage implements OnInit {
         (data: any)=>{
           console.log("Response from getMemberIdbyName:", data);
           if (data && data.idmember) {
-            this.p_idmember = data.idmember; // Access the nested idmember
+            this.p_idmember = data.idmember; 
             console.log("ID Member successfully fetched:", this.p_idmember);
           } 
           else {
@@ -67,13 +67,11 @@ export class ApplyTeamNewPage implements OnInit {
 
   applyTeam() {
     this.getMemberIdbyName();
-    // Call getMemberIdbyName to fetch the ID first
     this.esportservice.getMemberIdbyName(this.username).subscribe(
       (data: any) => {
-        this.p_idmember = data.idmember; // Assign fetched ID to p_idmember
+        this.p_idmember = data.idmember; 
         console.log("ID Member:", this.p_idmember);
   
-        // Proceed with the application process after ID is fetched
         console.log({
           idmember: this.p_idmember,
           idteam: this.p_idteam,

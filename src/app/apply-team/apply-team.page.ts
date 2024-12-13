@@ -19,10 +19,9 @@ export class ApplyTeamPage implements OnInit {
     this.esportservice.getMemberIdbyName(this.username).subscribe(
       (data: any) => {
         if (data && data.idmember) {
-          this.p_idmember = data.idmember; // Assign fetched idmember
+          this.p_idmember = data.idmember; 
           console.log("ID Member:", this.p_idmember);
 
-          // Fetch the proposal list using idmember
           this.getProposalList();
         } else {
           console.error("Member not found:", data);
@@ -37,10 +36,9 @@ export class ApplyTeamPage implements OnInit {
   }
 
   getProposalList() {
-    // Fetch proposal list using the fetched idmember
     this.esportservice.proposalList(this.p_idmember).subscribe(
       (data) => {
-        this.proposal = data; // Assign proposal data
+        this.proposal = data;
         console.log("Proposal List:", this.proposal);
       },
       (error) => {
