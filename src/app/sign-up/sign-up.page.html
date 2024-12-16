@@ -1,13 +1,36 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>sign-up</ion-title>
+    <ion-title>Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">sign-up</ion-title>
+      <ion-title size="large">Sign Up</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div style="text-align: center;">
+    <ion-label>Sign Up</ion-label>
+  </div>
+  <ion-item>
+    <ion-textarea
+        [(ngModel)]="lastName"
+        label="First Name"
+        placeholder = "Enter your first name"
+        labelPlacement="stacked"
+        rows="1"
+        fill="outline"
+      ></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-textarea
+        [(ngModel)]="lastName"
+        label="Last Name"
+        placeholder = "Enter your last name"
+        labelPlacement="stacked"
+        rows="1"
+        fill="outline"
+      ></ion-textarea>
+  </ion-item>
 </ion-content>

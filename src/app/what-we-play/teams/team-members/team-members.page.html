@@ -5,9 +5,7 @@
         <ion-icon name="chevron-back-outline" class="icon-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-
     <ion-title>Team Members</ion-title>
-
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon name="person-circle-outline" class="icon-person"></ion-icon>
@@ -31,13 +29,13 @@
         <h2><b>{{ teamName }}</b></h2>
       </ion-label>
     </ion-item>
-    <ion-item *ngFor="let member of selectedTeamDetail">
+    <ion-item *ngFor="let member of members">
       <ion-avatar slot="start">
         <img [src]="member.avatar">
       </ion-avatar>
       <ion-label>
-        <h2><b>{{ member.nickname }}</b></h2>
-        <p>Role: {{ member.role }}</p>
+        <h2><b>{{ member.username }}</b></h2>
+        <p>Role: {{ member.description }}</p>
       </ion-label>
     </ion-item>
   </ion-list>

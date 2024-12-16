@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EsportserviceService } from '../esportservice.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.page.scss'],
 })
 export class SignUpPage implements OnInit {
+  firstName: string = ""
+  lastName: string = ""
 
-  constructor() { }
+  constructor(private esportservice: EsportserviceService) { }
 
   ngOnInit() {
   }

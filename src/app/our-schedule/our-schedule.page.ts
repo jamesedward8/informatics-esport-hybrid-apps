@@ -8,7 +8,7 @@ import { EsportserviceService, Event } from '../esportservice.service';
 })
 export class OurSchedulePage implements OnInit {
 
-  events:Event[] = [];
+  events:any[] = [];
 
   constructor(private esportservice:EsportserviceService) { }
 
@@ -16,6 +16,7 @@ export class OurSchedulePage implements OnInit {
     this.esportservice.scheduleList().subscribe(
       (data)=>{
         this.events = data;
+        console.log(data);
       }
     )
   }

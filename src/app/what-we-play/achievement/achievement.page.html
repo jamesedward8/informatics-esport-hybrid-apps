@@ -24,15 +24,21 @@
     <ion-img [src]="banner" class="banner-image"></ion-img>
   </ion-item>
   <ion-item>
-    <ion-select label="Filter by Year" placeholder="Select Year" [(ngModel)]="selectedYear" (ionChange)="getSelectedYearAchivements()" fill="outline">
+    <ion-select 
+    label="Filter by Year" 
+    placeholder="Select Year" 
+    [(ngModel)]="selectedYear" 
+    (ionChange)="getSelectedYearAchievements()" 
+    fill="outline">
+      <ion-select-option value="All">All</ion-select-option>
       <ion-select-option *ngFor="let year of years" [value]="year">{{ year }}</ion-select-option>
     </ion-select>
-  </ion-item>
+  </ion-item> 
   <ion-list>
     <ion-item *ngFor="let achievement of selectedAchievements">
       <ion-label>
         <h2>{{ achievement.team }}</h2>
-        <p>{{ achievement.year }} - {{ achievement.name }}</p>
+        <p>{{ achievement.year | date:'yyyy-MM-dd'}} - {{ achievement.name }}</p>
       </ion-label>
     </ion-item>
   </ion-list>

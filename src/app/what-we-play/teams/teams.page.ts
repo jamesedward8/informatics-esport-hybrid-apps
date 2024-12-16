@@ -20,17 +20,15 @@ export class TeamsPage implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.name = params['name'];
-      console.log("Team Name:", this.name)
 
-      this.esportservice.getTeamIdbyName(this.name).subscribe(
-        (data: GameID[])=>{
-          this.game = data;
-          console.log("ID Game:", this.game)
+      this.esportservice.getGameIdbyName(this.name).subscribe(
+        (data: any)=>{
+          this.game = data.idgame;
+          this.banner = data.banner;
 
-          this.esportservice.teamList(this.game.idgame).subscribe(
+          this.esportservice.teamList(this.game).subscribe(
             (teamData: Team[])=>{
               this.teams = teamData;
-              console.log("Teams:", this.teams);
             }
           )
         });

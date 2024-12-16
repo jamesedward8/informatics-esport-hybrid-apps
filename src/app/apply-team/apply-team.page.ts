@@ -20,16 +20,13 @@ export class ApplyTeamPage implements OnInit {
       (data: any) => {
         if (data && data.idmember) {
           this.p_idmember = data.idmember; 
-          console.log("ID Member:", this.p_idmember);
-
           this.getProposalList();
-        } else {
-          console.error("Member not found:", data);
+        } 
+        else {
           alert("Unable to find member ID.");
         }
       },
       (error) => {
-        console.error("Error fetching Member ID:", error);
         alert("An error occurred while fetching Member ID.");
       }
     );
@@ -39,10 +36,8 @@ export class ApplyTeamPage implements OnInit {
     this.esportservice.proposalList(this.p_idmember).subscribe(
       (data) => {
         this.proposal = data;
-        console.log("Proposal List:", this.proposal);
       },
       (error) => {
-        console.error("Error fetching proposal list:", error);
         alert("An error occurred while fetching the proposal list.");
       }
     );

@@ -9,59 +9,58 @@ import { EsportserviceService, Game, Achievement } from 'src/app/esportservice.s
 })
 export class AchievementPage implements OnInit {
 
-  achievements: Achievement[] = [];     
+  achievements: any = [];
   games: Game[] = [];
-  gameName: string = "";
-  selectedYear: string = "All";
+  gameName: string = '';
+  selectedYear: string = 'All';
   selectedAchievements: any[] = [];
-  years: string[] = ['All', '2021', '2022', '2023'];
-  banner: string = "";
-  achievement: any[] = [];
-  selectedGame: any
+  years: string[] = [];
+  banner: string = '';
 
   constructor(private route: ActivatedRoute, private esportservice:EsportserviceService) {}
 
   ngOnInit() {
-    // this.achievements = this.esportservice.achievements;
-    // this.games = this.esportservice.games;
-    this.esportservice.achievementList().subscribe(
-      (data)=>{
-        this.achievements = data;
-      }
-    )
-    this.esportservice.gameList().subscribe(
-      (data)=>{
-        this.games = data;
-      }
-    )
     this.route.params.subscribe(params => {
       this.gameName = params['name'];
-      this.getSelectedGameAchievements();
+      
+      this.esportservice.getGameIdbyName(this.gameName).subscribe(
+        (data: any)=>{
+          this.banner = data.banner;
+        }
+      );
+
+      this.esportservice.achievementList(this.gameName).subscribe(
+        (data: any)=>{
+          this.achievements = data;
+          this.extractYearsFromAchievements();
+          this.filterAchievementsByYear();
+        }
+      );
     });
   }
 
-  getSelectedGameAchievements() {
-    this.selectedGame = this.games.find(game => game.name === this.gameName);
+  extractYearsFromAchievements() {
+    const yearsSet = new Set<string>();
+    this.achievements.forEach((achievement: any) => {
+      const year = new Date(achievement.date).getFullYear().toString();
+      yearsSet.add(year);
+    });
 
-    if (this.selectedGame) {
-      const gameAchievements = this.achievements.find(achievement => achievement.name === this.gameName);
-      
-      if (gameAchievements) {
-        this.achievement = gameAchievements.achievements; 
-        this.selectedAchievements = this.achievement; 
-      }
-      this.banner = this.selectedGame.banner; 
+    this.years = Array.from(yearsSet).sort((a, b) => parseInt(b) - parseInt(a));
+  }
+
+  filterAchievementsByYear() {
+    if (this.selectedYear === 'All') {
+      this.selectedAchievements = this.achievements;
+    } 
+    else {
+      this.selectedAchievements = this.achievements.filter(
+        (achievement: any) => new Date(achievement.date).getFullYear().toString() === this.selectedYear
+      );
     }
   }
 
-  getSelectedYearAchivements() {
-    if (this.selectedYear === "All") {
-      this.selectedAchievements = this.achievement; 
-    } 
-    else {
-      this.selectedAchievements = this.achievement.filter(
-        achievement => achievement.year.toString() === this.selectedYear
-      );
-    }
+  getSelectedYearAchievements() {
+    this.filterAchievementsByYear();
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EsportserviceService, Game, Team } from '../esportservice.service';
-import { getActionCache } from '@angular/core/primitives/event-dispatch';
 
 @Component({
   selector: 'app-apply-team-new',
@@ -28,77 +27,59 @@ export class ApplyTeamNewPage implements OnInit {
     this.esportservice.gameList().subscribe(
       (data)=>{
         this.game = data;
-        console.log(this.game);
       }
     )
+    this.loadMemberId();
   }
 
-  getMemberIdbyName(){
-      this.esportservice.getMemberIdbyName(this.username).subscribe(
-        (data: any)=>{
-          console.log("Response from getMemberIdbyName:", data);
-          if (data && data.idmember) {
-            this.p_idmember = data.idmember; 
-            console.log("ID Member successfully fetched:", this.p_idmember);
-          } 
-          else {
-            console.error("Unexpected response or empty result:", data.message);
-            alert("Member not found.");
-          }
-        },
-        (error) => {
-          console.error("Error fetching Member ID:", error);
-          alert("Unable to fetch Member ID. Please try again.");
-        }
-        
-      )
-  }
-
-  selectedTeam(){
-    if(this.selectedIdGame != null){
-      this.esportservice.teamList(this.selectedIdGame).subscribe(
-        (data)=> {
-          this.team = data;
-          console.log(this.team);
-        }
-      )
-    }
-  }
-
-  applyTeam() {
-    this.getMemberIdbyName();
+  loadMemberId() {
     this.esportservice.getMemberIdbyName(this.username).subscribe(
       (data: any) => {
-        this.p_idmember = data.idmember; 
-        console.log("ID Member:", this.p_idmember);
-  
-        console.log({
-          idmember: this.p_idmember,
-          idteam: this.p_idteam,
-          description: this.p_description,
-          status: this.p_status,
-          img: this.p_img,
-        });
-  
-        this.esportservice.addProposal(this.p_idmember, this.p_idteam, this.p_description, this.p_status, this.p_img).subscribe(
-          (response: any) => {
-            if (response.result === 'success') {
-              alert("Proposal is being processed");
-            } else {
-              alert(response.message);
-            }
-          },
-          (error) => {
-            console.error("Error submitting proposal:", error);
-            alert("An error occurred while submitting the proposal.");
-          }
-        );
+        if (data?.idmember) {
+          this.p_idmember = data.idmember;
+        } 
+        else {
+          alert("Member not found.");
+        }
       },
       (error) => {
-        console.error("Error fetching Member ID:", error);
         alert("Unable to fetch Member ID. Please try again.");
       }
     );
   }
-  
+
+  loadTeams() {
+    if (this.selectedIdGame) {
+      this.esportservice.teamList(this.selectedIdGame).subscribe(
+        (data) => this.team = data,
+        (error) => console.error("Error loading teams:", error)
+      );
+    }
+  }
+
+  applyTeam() {
+    if (!this.p_idmember || !this.p_idteam) {
+      alert("Please select a valid team and ensure your member ID is loaded.");
+      return;
+    }
+
+    this.esportservice.addProposal(
+      this.p_idmember, 
+      this.p_idteam, 
+      this.p_description, 
+      this.p_status, 
+      this.p_img).subscribe(
+      (response: any) => {
+        if (response.result === 'success') {
+          alert("Proposal is being processed.");
+        }
+        else {
+          alert(response.message || "An error occurred.");
+        }
+      },
+      (error) => {
+        alert("An error occurred while submitting the proposal.");
+      }
+    );
+  }
 }

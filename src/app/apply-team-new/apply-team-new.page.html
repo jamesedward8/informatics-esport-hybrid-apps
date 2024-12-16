@@ -25,9 +25,8 @@
     <ion-select
       labelPlacement="stacked"
       placeHolder="Choose Game"
-      (ionChange)="selectedTeam()"
-      [(ngModel)]="selectedIdGame"
-    >
+      (ionChange)="loadTeams()"
+      [(ngModel)]="selectedIdGame">
       <ion-select-option
         *ngFor="let game of game" 
         [value]="game.idgame"
@@ -40,8 +39,7 @@
       labelPlacement="stacked"
       placeHolder="Choose Team"
       [disabled]="!team.length"
-      [(ngModel)]="p_idteam"
-    >
+      [(ngModel)]="p_idteam">
       <ion-select-option
         *ngFor="let team of team"
         [value]="team.idteam"
@@ -64,7 +62,6 @@
         id="btnsubmit" 
         expand="block" 
         (click)="applyTeam()">Submit</ion-button>
-        
     </ion-buttons>
     <ion-alert
           trigger="btnsubmit"

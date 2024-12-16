@@ -17,10 +17,15 @@ export class ScheduleDetailPage implements OnInit {
   constructor(private route:ActivatedRoute, private esportservice: EsportserviceService) { }
 
   ngOnInit() {
-    this.events = this.esportservice.events;
     this.route.params.subscribe(params => {
       this.title = params['title'];
-      this.event = this.events.find(event => event.title === this.title);
     });
+
+    this.esportservice.scheduleDetail(this.title).subscribe(
+      (data)=>{
+        this.event = data;
+        console.log(data);
+      }
+    )
   }
 }

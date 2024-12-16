@@ -9,43 +9,42 @@ import { EsportserviceService, Game, Member } from 'src/app/esportservice.servic
 })
 export class TeamMembersPage implements OnInit {
 
-  teams:Member[] = [];
   games: Game[] = [];
   teamName: string = "";
   gameName: string = "";
-  members: Member[] = [];
+  members: any
   banner: string = "";
-  game:any;
-  team:any;
-  selectedTeamDetail: any[] = [];
+  username: string= "";
+  p_idteam: number = 0;
 
-  constructor(private route: ActivatedRoute, private esportservice:EsportserviceService) {}
+  constructor(private route: ActivatedRoute, private esportservice:EsportserviceService) {
+    this.username = localStorage.getItem("app_username") ?? '';
+  }
 
   ngOnInit() {
-    this.games = this.esportservice.games;
-    this.teams = this.esportservice.members;
-
     this.route.params.subscribe(params => {
       this.teamName = params['team'];
       this.gameName = params['game'];
-      this.loadMembers();
-    });
-  }
 
-  loadMembers() {
-    this.game = this.games.find(game => game.name === this.gameName);
+      this.esportservice.getGameIdbyName(this.gameName).subscribe(
+      (data: any)=>{
+        this.banner = data.banner;
+      });
 
-    if (this.game) {
-      const selectedGame = this.teams.find(team => team.name === this.gameName);
+      this.esportservice.getTeamIdbyName(this.teamName).subscribe(
+        (data: any) => {
+          this.p_idteam = data.idteam; 
 
-      if (selectedGame) {
-        const selectedTeam = selectedGame.teams.find(team => team.name === this.teamName);
-
-        if (selectedTeam) {
-          this.selectedTeamDetail = selectedTeam.members; 
+          this.esportservice.teamMember(this.p_idteam).subscribe(
+            (data)=>{
+              this.members = data;
+            }
+          )
+        },
+        (error) => {
+          alert("An error occurred while fetching Member ID.");
         }
-      }
-      this.banner = this.game.banner;
-    }
+      );
+    });
   }
 }
