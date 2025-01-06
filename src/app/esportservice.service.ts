@@ -86,6 +86,20 @@ export class EsportserviceService {
     return this.http.post(this.link + "loginesport.php", urlEncodedData, { headers });
   }
 
+  signUp(firstName: string, lastName: string, username: string, password: string, profile: string) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const body = new URLSearchParams();
+
+    body.set('firstName', firstName);
+    body.set('lastName', lastName);
+    body.set('username', username);
+    body.set('password', password);
+    body.set('profile', profile);
+    const urlEncodedData = body.toString();
+
+    return this.http.post(this.link + "signup.php", urlEncodedData, { headers });
+  }
+
   companyList(): Observable<any> {
     return this.http.get(this.link + "company.php");
   }

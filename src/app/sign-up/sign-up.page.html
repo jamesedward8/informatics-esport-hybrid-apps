@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-title>Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,12 +10,9 @@
       <ion-title size="large">Sign Up</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div style="text-align: center;">
-    <ion-label>Sign Up</ion-label>
-  </div>
   <ion-item>
     <ion-textarea
-        [(ngModel)]="lastName"
+        [(ngModel)]="firstName"
         label="First Name"
         placeholder = "Enter your first name"
         labelPlacement="stacked"
@@ -33,4 +30,51 @@
         fill="outline"
       ></ion-textarea>
   </ion-item>
+  <ion-item>
+    <ion-textarea
+        [(ngModel)]="username"
+        label="Username"
+        placeholder = "Enter your username"
+        labelPlacement="stacked"
+        rows="1"
+        fill="outline"
+      ></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-textarea
+        [(ngModel)]="password"
+        label="Password"
+        placeholder = "Enter your password"
+        labelPlacement="stacked"
+        rows="1"
+        fill="outline"
+      ></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-textarea
+        [(ngModel)]="repeatPassword"
+        label="Repeat Password"
+        placeholder = "Enter your password"
+        labelPlacement="stacked"
+        rows="1"
+        fill="outline"
+      ></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-buttons slot="end">
+      <ion-button 
+        id="btnsubmit" 
+        expand="block" 
+        (click)="signUp()">Sign Up</ion-button>
+    </ion-buttons>
+    <!-- <ion-alert
+          trigger="btnsubmit"
+          header="Sign Up"
+          message="Data successfully stored"
+          [buttons]="alertButtons"
+        ></ion-alert>  -->
+  </ion-item>
+  <ion-note *ngIf="password !== repeatPassword && repeatPassword.length > 0" color="danger">
+    Passwords do not match.
+  </ion-note>
 </ion-content>

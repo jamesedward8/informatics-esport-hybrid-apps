@@ -9,10 +9,44 @@ import { EsportserviceService } from '../esportservice.service';
 export class SignUpPage implements OnInit {
   firstName: string = ""
   lastName: string = ""
+  username: string = ""
+  password: string = ""
+  repeatPassword: string = ""
+  profile: string = "member";
 
   constructor(private esportservice: EsportserviceService) { }
 
   ngOnInit() {
   }
 
+  signUp(){
+    if (!this.firstName || !this.lastName || !this.username || !this.password || !this.repeatPassword) {
+      alert("Please fill in all the fields.");
+      return; 
+    }
+
+    if (this.password !== this.repeatPassword) {
+      alert("Passwords do not match. Please try again.");
+      return; 
+    }
+
+    this.esportservice.signUp(
+      this.firstName, 
+      this.lastName, 
+      this.username, 
+      this.password,
+      this.profile).subscribe(
+      (response: any) => {
+        if (response.result === 'success') {
+          alert("Congratulations!.");
+        }
+        else {
+          alert(response.message || "An error occurred.");
+        }
+      },
+      (error) => {
+        alert("An error occurred.");
+      }
+    );
+  }
 }
