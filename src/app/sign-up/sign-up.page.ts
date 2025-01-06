@@ -13,6 +13,7 @@ export class SignUpPage implements OnInit {
   password: string = ""
   repeatPassword: string = ""
   profile: string = "member";
+  newMember: boolean = false;
 
   constructor(private esportservice: EsportserviceService) { }
 

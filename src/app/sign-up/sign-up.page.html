@@ -10,65 +10,40 @@
       <ion-title size="large">Sign Up</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-item>
-    <ion-textarea
-        [(ngModel)]="firstName"
-        label="First Name"
-        placeholder = "Enter your first name"
-        labelPlacement="stacked"
-        rows="1"
-        fill="outline"
-      ></ion-textarea>
+    <ion-input [(ngModel)]="firstName" label="First Name" labelPlacement="floating"></ion-input>
   </ion-item>
+
   <ion-item>
-    <ion-textarea
-        [(ngModel)]="lastName"
-        label="Last Name"
-        placeholder = "Enter your last name"
-        labelPlacement="stacked"
-        rows="1"
-        fill="outline"
-      ></ion-textarea>
+    <ion-input [(ngModel)]="lastName" label="Last Name" labelPlacement="floating"></ion-input>
   </ion-item>
+
   <ion-item>
-    <ion-textarea
-        [(ngModel)]="username"
-        label="Username"
-        placeholder = "Enter your username"
-        labelPlacement="stacked"
-        rows="1"
-        fill="outline"
-      ></ion-textarea>
+    <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating"></ion-input>
   </ion-item>
+
   <ion-item>
-    <ion-textarea
-        [(ngModel)]="password"
-        label="Password"
-        placeholder = "Enter your password"
-        labelPlacement="stacked"
-        rows="1"
-        fill="outline"
-      ></ion-textarea>
+    <ion-input [(ngModel)]="password" type="password" label="Password" labelPlacement="floating"></ion-input>
   </ion-item>
+
   <ion-item>
-    <ion-textarea
-        [(ngModel)]="repeatPassword"
-        label="Repeat Password"
-        placeholder = "Enter your password"
-        labelPlacement="stacked"
-        rows="1"
-        fill="outline"
-      ></ion-textarea>
+    <ion-input [(ngModel)]="repeatPassword" type="password" label="Repeat Password" labelPlacement="floating"></ion-input>
   </ion-item>
+
+  <ion-item lines="none">
+    <ion-checkbox [(ngModel)]="newMember"></ion-checkbox>
+    <ion-label>I agree with terms and conditions</ion-label>
+  </ion-item>
+
   <ion-item>
     <ion-buttons slot="end">
-      <ion-button 
-        id="btnsubmit" 
-        expand="block" 
-        (click)="signUp()">Sign Up</ion-button>
+      <ion-button id="btnsubmit" expand="block" [disabled]="!newMember" (click)="signUp()">
+        Sign Up
+      </ion-button>
     </ion-buttons>
-  
   </ion-item>
+
   <ion-note *ngIf="password !== repeatPassword && repeatPassword.length > 0" color="danger">
     Passwords do not match.
   </ion-note>
