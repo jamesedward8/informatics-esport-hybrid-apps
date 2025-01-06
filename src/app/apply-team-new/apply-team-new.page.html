@@ -57,17 +57,18 @@
       ></ion-textarea>
   </ion-item>
   <ion-item>
-    <ion-buttons slot="end">
-      <ion-button 
+    <ion-button 
         id="btnsubmit" 
         expand="block" 
-        (click)="applyTeam()">Submit</ion-button>
-    </ion-buttons>
+        (click)="applyTeam()"
+        slot="end" 
+        color="primary">Submit
+    </ion-button>
     <ion-alert
-          trigger="btnsubmit"
-          header="Apply Team"
-          message="Data successfully stored"
-          [buttons]="alertButtons"
-        ></ion-alert> 
+        trigger="btnsubmit"
+        header="Apply Team"
+        message="Data successfully stored"
+        [buttons]="alertButtons"
+    ></ion-alert> 
   </ion-item>
 </ion-content>
