@@ -72,6 +72,7 @@ export class ApplyTeamNewPage implements OnInit {
       (response: any) => {
         if (response.result === 'success') {
           alert("Proposal is being processed.");
+          window.location.href = '/apply-team';
         }
         else {
           alert(response.message || "An error occurred.");

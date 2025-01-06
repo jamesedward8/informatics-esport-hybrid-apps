@@ -19,7 +19,7 @@ export class SignUpPage implements OnInit {
   ngOnInit() {
   }
 
-  signUp(){
+  signUp() {
     if (!this.firstName || !this.lastName || !this.username || !this.password || !this.repeatPassword) {
       alert("Please fill in all the fields.");
       return; 
@@ -39,6 +39,8 @@ export class SignUpPage implements OnInit {
       (response: any) => {
         if (response.result === 'success') {
           alert("Congratulations!.");
+          
+          window.location.href = '/what-we-play';
         }
         else {
           alert(response.message || "An error occurred.");

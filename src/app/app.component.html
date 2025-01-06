@@ -1,7 +1,9 @@
 <ion-app>
-  <ion-router-outlet id="main-content" *ngIf="fullname"></ion-router-outlet>
+  <!-- Router Outlet -->
+  <ion-router-outlet id="main-content" *ngIf="fullname || isExcludedPage()"></ion-router-outlet>
 
-  <ion-tabs *ngIf="fullname ">
+  <!-- Tabs Navigation -->
+  <ion-tabs *ngIf="fullname">
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="what-we-play" routerLink="/what-we-play">
         <ion-icon name="game-controller-outline"></ion-icon>
@@ -19,7 +21,7 @@
   </ion-tabs>
 
   <!-- Navigation Drawer -->
-  <ion-menu auto-hide="true" content-id="main-content">
+  <ion-menu auto-hide="true" content-id="main-content" *ngIf="fullname">
     <ion-header>
       <ion-toolbar>
         <ion-title>Welcome, {{ fullname }}</ion-title>
@@ -35,31 +37,39 @@
         </ion-menu-toggle>
         <ion-menu-toggle>
           <ion-item>
-            <ion-button (click)="logout()">Sign Out</ion-button>
+            <ion-button expand="block" (click)="logout()">Sign Out</ion-button>
           </ion-item>
         </ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>
 
-  <ion-content class="ion-padding" *ngIf="!fullname">
-      <div style="display: flex; justify-content: center; align-items: center; height: 30vh; margin-bottom: 40px;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHzLKrYB10B9Zah7uDWEnkIiZ8G6sZb3HSiQ&s" />
-      </div>
-      <ion-card>
-        <ion-item>
-          <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating" />
-        </ion-item>
-        <ion-item>
-          <ion-input [(ngModel)]="password" type="password" label="Password" labelPlacement="floating" />
-        </ion-item>
-        <ion-button expand="block" (click)="login()">Login</ion-button>
-      </ion-card>
-      <div style="text-align: center; margin-top: 80px;">
-        <ion-label>Don't have an account?</ion-label>
-      </div>
-      <div style="display: flex; justify-content: center; margin-top: 5px;">
-        <ion-button expand="block" routerLink="/sign-up">Sign Up</ion-button>
-      </div>
+  <!-- Login Page -->
+  <ion-content *ngIf="!fullname && !isExcludedPage()">
+    <!-- Logo -->
+    <div style="display: flex; justify-content: center; align-items: center; height: 30vh; margin-bottom: 40px;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHzLKrYB10B9Zah7uDWEnkIiZ8G6sZb3HSiQ&s"
+        alt="App Logo" />
+    </div>
+
+    <!-- Login Form -->
+    <ion-card>
+      <ion-item>
+        <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="password" type="password" label="Password" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="login()">Login</ion-button>
+    </ion-card>
+
+    <!-- Sign Up Link -->
+    <div style="text-align: center; margin-top: 40px;">
+      <ion-label>Don't have an account?</ion-label>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 10px;">
+      <ion-button expand="block" routerLink="/sign-up">Sign Up</ion-button>
+    </div>
+
   </ion-content>
 </ion-app>

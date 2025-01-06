@@ -67,12 +67,7 @@
         expand="block" 
         (click)="signUp()">Sign Up</ion-button>
     </ion-buttons>
-    <!-- <ion-alert
-          trigger="btnsubmit"
-          header="Sign Up"
-          message="Data successfully stored"
-          [buttons]="alertButtons"
-        ></ion-alert>  -->
+  
   </ion-item>
   <ion-note *ngIf="password !== repeatPassword && repeatPassword.length > 0" color="danger">
     Passwords do not match.
