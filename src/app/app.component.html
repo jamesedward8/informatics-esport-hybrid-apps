@@ -1,8 +1,8 @@
 <ion-app>
-  <!-- Router Outlet -->
+ 
   <ion-router-outlet id="main-content" *ngIf="fullname || isExcludedPage()"></ion-router-outlet>
 
-  <!-- Tabs Navigation -->
+
   <ion-tabs *ngIf="fullname">
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="what-we-play" routerLink="/what-we-play">
@@ -20,7 +20,7 @@
     </ion-tab-bar>
   </ion-tabs>
 
-  <!-- Navigation Drawer -->
+
   <ion-menu auto-hide="true" content-id="main-content" *ngIf="fullname">
     <ion-header>
       <ion-toolbar>
@@ -44,15 +44,15 @@
     </ion-content>
   </ion-menu>
 
-  <!-- Login Page -->
+ 
   <ion-content *ngIf="!fullname && !isExcludedPage()">
-    <!-- Logo -->
+    
     <div style="display: flex; justify-content: center; align-items: center; height: 30vh; margin-bottom: 40px;">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHzLKrYB10B9Zah7uDWEnkIiZ8G6sZb3HSiQ&s"
         alt="App Logo" />
     </div>
 
-    <!-- Login Form -->
+
     <ion-card>
       <ion-item>
         <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating"></ion-input>
@@ -63,7 +63,7 @@
       <ion-button expand="block" (click)="login()">Login</ion-button>
     </ion-card>
 
-    <!-- Sign Up Link -->
+
     <div style="text-align: center; margin-top: 40px;">
       <ion-label>Don't have an account?</ion-label>
     </div>
