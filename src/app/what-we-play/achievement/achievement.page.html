@@ -28,7 +28,7 @@
     label="Filter by Year" 
     placeholder="Select Year" 
     [(ngModel)]="selectedYear" 
-    (ionChange)="getSelectedYearAchievements()" 
+    (ionChange)="filterAchievementsByYear()" 
     fill="outline">
       <ion-select-option value="All">All</ion-select-option>
       <ion-select-option *ngFor="let year of years" [value]="year">{{ year }}</ion-select-option>

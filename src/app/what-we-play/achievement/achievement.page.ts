@@ -59,8 +59,4 @@ export class AchievementPage implements OnInit {
       );
     }
   }
-
-  getSelectedYearAchievements() {
-    this.filterAchievementsByYear();
-  }
 }
