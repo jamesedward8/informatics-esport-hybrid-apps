@@ -18,7 +18,6 @@ export class AppComponent {
   }
 
   isExcludedPage(): boolean {
-   
     const excludedRoutes = ['/sign-up'];
     return excludedRoutes.some((route) => this.router.url.includes(route));
   }
